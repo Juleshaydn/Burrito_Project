@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><!-- res/values/themes.xml -->
+<resources>
+    <!-- Define other themes here if necessary -->
+    <style name="BottomNavTheme" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/nav_menu_background</item>
+        <item name="colorPrimary">@android:color/white</item>
+        <!-- Add other styling attributes as needed -->
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"/>
+</resources>

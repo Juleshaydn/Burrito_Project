@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="burrito" translatable="false">Burrito App</string>
+    <string name="home" translatable="false">Home</string>
+    <string name="menu" translatable="false">Menu</string>
+    <string name="build" translatable="false">Burrito Builder</string>
+    <string name="cart" translatable="false">Cart</string>
+
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="home_message" translatable="false">Home fragment</string>
+    <string name="message_message" translatable="false">Message fragment</string>
+    <string name="build_message">Build fragment</string>
+    <string name="cart_message">Cart fragment</string>
+</resources>
