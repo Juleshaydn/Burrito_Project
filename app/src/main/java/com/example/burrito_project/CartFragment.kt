@@ -42,7 +42,14 @@ class CartFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_cart, container, false)
 
-        view.findViewById<Button>(R.id.btnPayTotalPrice).setOnClickListener {
+//        view.findViewById<Button>(R.id.btnPayTotalPrice).setOnClickListener {
+//            paymentIntentClientSecret?.let { secret ->
+//                paymentSheet.presentWithPaymentIntent(secret)
+//            } ?: Toast.makeText(activity, "Error: Client secret is null", Toast.LENGTH_SHORT).show()
+//        }
+//        return view
+//    }
+        view.findViewById<TextView>(R.id.tvTotalPrice).setOnClickListener {
             paymentIntentClientSecret?.let { secret ->
                 paymentSheet.presentWithPaymentIntent(secret)
             } ?: Toast.makeText(activity, "Error: Client secret is null", Toast.LENGTH_SHORT).show()
@@ -70,7 +77,7 @@ class CartFragment : Fragment() {
 
     // Update this function to use the global totalPriceInCents
     private fun updateTotalPrice() {
-        view?.findViewById<TextView>(R.id.tvTotalPrice)?.text = "Total Price: $${totalPriceInCents / 100}"
+        view?.findViewById<TextView>(R.id.tvTotalPrice)?.text = "Pay Now: $${totalPriceInCents / 100}"
     }
 
     private fun refreshCartItems(items: List<Burrito>) {

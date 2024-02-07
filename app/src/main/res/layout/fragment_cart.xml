@@ -73,21 +73,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/colorAccent"
-        android:text="Total Price: $0.0"
+        android:text="Pay Now: $0.0"
         android:textSize="20sp"
         android:gravity="center"
         android:padding="16dp" />
 
-    <Button
-        android:id="@+id/btnPayTotalPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pay Total: $0.0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+<!--    <Button-->
+<!--        android:id="@+id/btnPayTotalPrice"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Pay Total: $0.0"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
 
 </RelativeLayout>
-
-
-
