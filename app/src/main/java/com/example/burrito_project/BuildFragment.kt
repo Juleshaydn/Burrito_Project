@@ -74,11 +74,14 @@ class BuildFragment : Fragment() {
             if (it.isChecked) selectedIngredients.add(it.text.toString())
         }
 
+        val priceInDollars = calculatePrice(selectedIngredients)
+        val priceInCents = (priceInDollars * 100).toLong()  // Convert to cents and then to Long
+
         val newBurrito = Burrito(
             id = Burrito.createNextId(),
             title = "Custom Burrito",
             ingredients = selectedIngredients,
-            price = calculatePrice(selectedIngredients)
+            price = priceInCents  // Use the Long value here
         )
         viewModel.addToCart(newBurrito)
         Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()

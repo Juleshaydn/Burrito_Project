@@ -23,14 +23,19 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 class CartFragment : Fragment() {
 
     private val viewModel: SharedViewModel by activityViewModels()
-
     private lateinit var paymentSheet: PaymentSheet
     private var paymentIntentClientSecret: String? = null
+
+    // Declare totalPrice as a global variable
+    private var totalPriceInCents: Long = 0L
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -57,8 +62,15 @@ class CartFragment : Fragment() {
     private fun observeCartItems() {
         viewModel.cartItems.observe(viewLifecycleOwner) { items ->
             refreshCartItems(items)
-            updateTotalPrice(items)
+            // Calculate and update the total price whenever the cart items change
+            totalPriceInCents = (items.sumOf { it.price } * 100).toLong()
+            updateTotalPrice()
         }
+    }
+
+    // Update this function to use the global totalPriceInCents
+    private fun updateTotalPrice() {
+        view?.findViewById<TextView>(R.id.tvTotalPrice)?.text = "Total Price: $${totalPriceInCents / 100}"
     }
 
     private fun refreshCartItems(items: List<Burrito>) {
@@ -109,9 +121,11 @@ class CartFragment : Fragment() {
     data class PaymentIntentRequest(val amount: Number)
     data class PaymentIntentResponse(val paymentIntent: String)
     interface BackendService {
+        @FormUrlEncoded
         @POST("/Burrito-Server/index.php")
-        fun createPaymentIntent(@Body request: PaymentIntentRequest): Call<PaymentIntentResponse>
+        fun createPaymentIntent(@Field("amount") amount: Long): Call<PaymentIntentResponse>
     }
+
 
     private fun onPaymentSheetResult(paymentSheetResult: PaymentSheetResult) {
         when (paymentSheetResult) {
@@ -144,10 +158,11 @@ class CartFragment : Fragment() {
 
         val backendService = retrofit.create(BackendService::class.java)
 
-        val totalPriceInCents = viewModel.cartItems.value?.sumOf { it.price } ?: 0L
         val request = PaymentIntentRequest(amount = totalPriceInCents)
 
-        backendService.createPaymentIntent(request).enqueue(object : Callback<PaymentIntentResponse> {
+        val totalPriceInCents = viewModel.cartItems.value?.sumOf { it.price * 100 } ?: 0L
+
+        backendService.createPaymentIntent(totalPriceInCents).enqueue(object : Callback<PaymentIntentResponse> {
             override fun onResponse(call: Call<PaymentIntentResponse>, response: Response<PaymentIntentResponse>) {
                 if (response.isSuccessful) {
                     val responseBody = response.body()

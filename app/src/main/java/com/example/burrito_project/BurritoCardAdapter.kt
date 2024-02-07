@@ -26,7 +26,7 @@ data class Burrito(
     val id: Int = 0,
     val title: String,
     val ingredients: List<String> = listOf(),
-    val price: Double
+    val price: Long
 ) {
     companion object {
         private var counter = 1

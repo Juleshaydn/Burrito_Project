@@ -36,11 +36,14 @@ class MenuFragment : Fragment() {
     }
 
     private fun addPredefinedBurritoToCart(name: String, ingredients: List<String>, price: Double) {
+        // Convert price to cents and then to Long
+        val priceInCents = (price * 100).toLong()
+
         val newBurrito = Burrito(
             id = Burrito.createNextId(),
             title = name,
             ingredients = ingredients,
-            price = price
+            price = priceInCents
         )
         viewModel.addToCart(newBurrito)
     }
