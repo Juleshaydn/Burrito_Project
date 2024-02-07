@@ -1,0 +1,19 @@
+{
+  "name": "burrito_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juleshaydn/Burrito_Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Juleshaydn/Burrito_Project/issues"
+  },
+  "homepage": "https://github.com/Juleshaydn/Burrito_Project#readme"
+}
