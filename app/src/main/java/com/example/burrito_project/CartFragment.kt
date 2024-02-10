@@ -70,7 +70,7 @@ class CartFragment : Fragment() {
         viewModel.cartItems.observe(viewLifecycleOwner) { items ->
             refreshCartItems(items)
             // Calculate and update the total price whenever the cart items change
-            totalPriceInCents = (items.sumOf { it.price } * 100).toLong()
+            totalPriceInCents = (items.sumOf { it.price }).toLong()
             updateTotalPrice()
         }
     }
@@ -96,7 +96,7 @@ class CartFragment : Fragment() {
             }
 
             val priceTextView = TextView(context).apply {
-                text = "Price: $${burrito.price}"
+                text = "Price: $${burrito.price / 100}"
                 // Layout parameters, padding, and text size
             }
 
@@ -167,7 +167,7 @@ class CartFragment : Fragment() {
 
         val request = PaymentIntentRequest(amount = totalPriceInCents)
 
-        val totalPriceInCents = viewModel.cartItems.value?.sumOf { it.price * 100 } ?: 0L
+        val totalPriceInCents = viewModel.cartItems.value?.sumOf { it.price } ?: 0L
 
         backendService.createPaymentIntent(totalPriceInCents).enqueue(object : Callback<PaymentIntentResponse> {
             override fun onResponse(call: Call<PaymentIntentResponse>, response: Response<PaymentIntentResponse>) {
