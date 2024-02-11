@@ -6,6 +6,4 @@
         <item name="colorPrimary">@android:color/white</item>
         <!-- Add other styling attributes as needed -->
     </style>
-
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"/>
 </resources>

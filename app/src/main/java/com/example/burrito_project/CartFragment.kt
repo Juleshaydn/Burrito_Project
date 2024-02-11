@@ -28,31 +28,19 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 class CartFragment : Fragment() {
-
     private val viewModel: SharedViewModel by activityViewModels()
     private lateinit var paymentSheet: PaymentSheet
     private var paymentIntentClientSecret: String? = null
-
-    // Declare totalPrice as a global variable
     private var totalPriceInCents: Long = 0L
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_cart, container, false)
-
-//        view.findViewById<Button>(R.id.btnPayTotalPrice).setOnClickListener {
-//            paymentIntentClientSecret?.let { secret ->
-//                paymentSheet.presentWithPaymentIntent(secret)
-//            } ?: Toast.makeText(activity, "Error: Client secret is null", Toast.LENGTH_SHORT).show()
-//        }
-//        return view
-//    }
         view.findViewById<TextView>(R.id.tvTotalPrice).setOnClickListener {
             paymentIntentClientSecret?.let { secret ->
-                paymentSheet.presentWithPaymentIntent(secret)
-            } ?: Toast.makeText(activity, "Error: Client secret is null", Toast.LENGTH_SHORT).show()
+                if (context != null) {
+                    paymentSheet.presentWithPaymentIntent(secret)
+                }
+            } ?: showToast("Error: Client secret is null")
         }
         return view
     }
@@ -61,7 +49,6 @@ class CartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         PaymentConfiguration.init(requireContext(), "pk_test_51OfC7RKYr1gbOYbz3bcanFhFoEnc03s2KWKfSQciP3t2NXLXejvtaZt6KoGGWyN4nkWx7vuUtg4Ob8VFxVRWPEWX00VZIX6RP7")
         paymentSheet = PaymentSheet(this, ::onPaymentSheetResult)
-
         observeCartItems()
         fetchPaymentIntent()
     }
@@ -69,8 +56,7 @@ class CartFragment : Fragment() {
     private fun observeCartItems() {
         viewModel.cartItems.observe(viewLifecycleOwner) { items ->
             refreshCartItems(items)
-            // Calculate and update the total price whenever the cart items change
-            totalPriceInCents = (items.sumOf { it.price }).toLong()
+            totalPriceInCents = items.sumOf { it.price }.toLong()
             updateTotalPrice()
         }
     }
@@ -148,6 +134,12 @@ class CartFragment : Fragment() {
         }
     }
 
+    private fun showToast(message: String) {
+        if (isAdded) {
+            Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+        }
+    }
+
     private fun fetchPaymentIntent() {
         val loggingInterceptor = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
@@ -195,5 +187,4 @@ class CartFragment : Fragment() {
             }
         })
     }
-
 }

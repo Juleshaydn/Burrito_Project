@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.storage.CacheResetOnProcessCanceled.enabled
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -54,7 +56,7 @@ android {
 dependencies {
     implementation("com.stripe:stripe-android:+")
     implementation("com.android.volley:volley:1.2.1")
-
+    implementation("com.google.code.gson:gson:2.8.6")
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("androidx.core:core-ktx:1.3.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
@@ -63,13 +65,9 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.9.0")
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.appcompat:appcompat:1.2.0")
-
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
-
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-
-
     implementation("androidx.appcompat:appcompat:+")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
@@ -91,5 +89,4 @@ dependencies {
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-
 }
