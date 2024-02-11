@@ -2,7 +2,6 @@ package com.example.burrito
 
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.Toast
-import android.widget.Toast.makeText
 import androidx.fragment.app.activityViewModels
 import kotlin.random.Random
 
@@ -75,16 +73,20 @@ class BuildFragment : Fragment() {
         }
 
         val priceInDollars = calculatePrice(selectedIngredients)
-        val priceInCents = (priceInDollars * 100).toLong()  // Convert to cents and then to Long
+        val priceInCents = (priceInDollars * 100).toLong() // Convert to cents and then to Long
+
+        // Assign a string that represents the image resource or file name
+        val imageResource = "burrito_image1" // Replace with actual resource name
 
         val newBurrito = Burrito(
             id = Burrito.createNextId(),
             title = "Custom Burrito",
             ingredients = selectedIngredients,
-            price = priceInCents  // Use the Long value here
+            price = priceInCents,
+            image = imageResource // Assign the image resource name here
         )
         viewModel.addToCart(newBurrito)
-        Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Added custom burrito to cart", Toast.LENGTH_SHORT).show()
     }
 
     private fun generateUniqueID(): Int {

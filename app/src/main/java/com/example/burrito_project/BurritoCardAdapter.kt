@@ -2,13 +2,6 @@ package com.example.burrito
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.recyclerview.widget.RecyclerView
 import com.example.burrito.databinding.ItemBurritoCardBinding
 
@@ -21,7 +14,12 @@ class BurritoCardAdapter(
         fun bind(burrito: Burrito, onAddToCartClicked: (Burrito) -> Unit) {
             with(binding) {
                 tvBurritoTitle.text = burrito.title
-                tvBurritoPrice.text = "Price: $${burrito.price / 100}"
+                tvBurritoPrice.text = "Price: $${burrito.price}"
+
+                // Use the image name to get the drawable resource ID
+                val imageResId = itemView.context.resources.getIdentifier(burrito.image, "drawable", itemView.context.packageName)
+                ivBurritoImage.setImageResource(imageResId)
+
                 btnAddToCartCard.setOnClickListener {
                     onAddToCartClicked(burrito)
                 }
@@ -50,8 +48,10 @@ data class Burrito(
     val id: Int = 0,
     val title: String,
     val ingredients: List<String> = listOf(),
-    val price: Long
-) {
+    val price: Long,
+    val image: String // This will store the image name without the extension
+)
+ {
     companion object {
         private var counter = 1
 

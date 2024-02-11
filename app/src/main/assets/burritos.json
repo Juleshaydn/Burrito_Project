@@ -3,12 +3,14 @@
     "id": 1,
     "title": "Rice Rider",
     "ingredients": ["Rice"],
-    "price": 400.00
+    "price": 400.00,
+    "image": "burrito_image1"
   },
   {
     "id": 2,
     "title": "Bean Bonanza",
     "ingredients": ["Rice", "Beans", "Chicken"],
-    "price": 6900.00
+    "price": 6900.00,
+    "image": "burrito_image2"
   }
 ]
