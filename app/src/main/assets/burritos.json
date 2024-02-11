@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "Rice Rider",
+    "ingredients": ["Rice"],
+    "price": 400.00
+  },
+  {
+    "id": 2,
+    "title": "Bean Bonanza",
+    "ingredients": ["Rice", "Beans", "Chicken"],
+    "price": 6900.00
+  }
+]
