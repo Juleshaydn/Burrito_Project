@@ -1,20 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- res/values/colors.xml -->
+    <!-- Primary Brand Color -->
+    <color name="colorPrimary">#FF5722</color> <!-- A warm and vibrant orange -->
+    <color name="colorPrimaryDark">#E64A19</color> <!-- A darker shade of the primary color for depth -->
 
-    <color name="colorPrimary">#D2B48C</color>
-    <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#508991</color>
+    <!-- Accent Color for interactive elements (buttons, links) -->
+    <color name="colorAccent">#4CAF50</color> <!-- A fresh and vibrant green for accents -->
 
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="nav_menu_background">#FF0000</color>
-    <color name="nav_item_selected">#FFFFFF</color> <!-- Example selected item color -->
-    <color name="nav_item_unselected">#8A8A8A</color> <!-- Example unselected item color -->
-    <!-- Other color resources -->
+    <!-- Navigation Menu Colors -->
+    <color name="nav_menu_background">#FFFFFF</color> <!-- Clean white background for contrast -->
+    <color name="nav_item_selected">#FF5722</color> <!-- Highlight selected items with the primary color -->
+    <color name="nav_item_unselected">#757575</color> <!-- A neutral gray for unselected items, for better readability -->
+
+    <!-- Common UI Colors -->
+    <color name="black">#FF000000</color> <!-- Black for text and important elements -->
+    <color name="white">#FFFFFFFF</color> <!-- White for backgrounds and UI elements -->
+
+    <!-- Additional colors for UI elements -->
+    <color name="background_light">#F5F5F5</color> <!-- A light gray for background surfaces -->
+    <color name="text_primary">#212121</color> <!-- Primary text color for high contrast -->
+    <color name="text_secondary">#757575</color> <!-- Secondary text color for less emphasis -->
 </resources>

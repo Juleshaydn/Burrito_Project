@@ -54,6 +54,7 @@ android {
 }
 
 dependencies {
+    implementation("com.google.android.material:material:<latest_version>")
     implementation("com.stripe:stripe-android:+")
     implementation("com.android.volley:volley:1.2.1")
     implementation("com.google.code.gson:gson:2.8.6")

@@ -1,81 +1,73 @@
-<!-- res/layout/fragment_cart.xml -->
-
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
-    <ScrollView
+    <!-- Use a CoordinatorLayout to handle scrolling and app bar behavior -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <!-- AppBarLayout for the toolbar -->
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-            <!-- Welcome Card -->
-            <!-- Your existing welcome card code here... -->
-
-            <!-- Burrito Menu Card 1 -->
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar_cart"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
-                android:padding="16dp">
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:title="Your Cart"
+                app:titleTextColor="@color/white"
+                app:layout_scrollFlags="scroll|enterAlways" />
+        </com.google.android.material.appbar.AppBarLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+        <!-- NestedScrollView allows for proper scrolling within a CoordinatorLayout -->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Order"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="4dp"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="This is a list of your order"
-                        android:textSize="16sp" />
-
-                    <!-- Add ImageView or other details if needed -->
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Cart Items Container -->
             <LinearLayout
-                android:id="@+id/cartItemsContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp">
-                <!-- Items will be added here programmatically -->
+
+                <!-- This is the cart items container where cart items will be programmatically added -->
+                <LinearLayout
+                    android:id="@+id/cartItemsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="80dp"> <!-- Give enough bottom margin for the checkout button to not cover content -->
+
+                    <!-- Dynamic cart items will be added here -->
+
+                </LinearLayout>
 
             </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- Checkout button positioned at the bottom -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/tvTotalPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Checkout"
+            android:layout_gravity="bottom"
+            android:padding="16dp"
+            android:backgroundTint="@color/colorAccent"
+            android:textColor="@color/white"
+            app:cornerRadius="8dp"
+            android:elevation="8dp"
+            android:layout_margin="16dp" />
 
 
-        </LinearLayout>
-    </ScrollView>
-    <TextView
-        android:id="@+id/tvTotalPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorAccent"
-        android:text="Pay Now: $0.0"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:padding="16dp" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </RelativeLayout>

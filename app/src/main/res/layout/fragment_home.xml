@@ -31,59 +31,14 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <!-- Static Details -->
-                    <TextView
+                    <ImageView
+                        android:id="@+id/ivBurritoImage"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Welcome to"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
+                        android:layout_height="50dp"
+                        android:src="@drawable/logo"
+                        android:scaleType="centerInside"
+                        android:adjustViewBounds="true"
                         android:layout_gravity="center"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="16dp"
-                        android:text="Barry's Burritos!"
-                        android:textSize="36sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Home of the best burritos in Stoke-on-Trent, where every bite is a fiesta!"
-                        android:textSize="16sp"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="8dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Our burritos are so good, even the salsa is doing the cha-cha!"
-                        android:textSize="16sp"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="8dp"/>
-
-                    <!-- Add more static details as needed -->
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Static Details CardView -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="8dp"
-                android:layout_marginTop="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
 
                     <!-- Static Details -->
                     <TextView
@@ -119,122 +74,10 @@
                         android:textSize="16sp"
                         android:layout_gravity="center"
                         android:layout_marginBottom="8dp"/>
-
-                    <!-- Add more static details as needed -->
-
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
 
-            <!-- Static Details CardView -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="8dp"
-                android:layout_marginTop="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <!-- Static Details -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Welcome to"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        android:layout_gravity="center"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="16dp"
-                        android:text="Barry's Burritos!"
-                        android:textSize="36sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Home of the best burritos in Stoke-on-Trent, where every bite is a fiesta!"
-                        android:textSize="16sp"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="8dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Our burritos are so good, even the salsa is doing the cha-cha!"
-                        android:textSize="16sp"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="8dp"/>
-
-                    <!-- Add more static details as needed -->
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Static Details CardView -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="8dp"
-                android:layout_marginTop="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <!-- Static Details -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Welcome to"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        android:layout_gravity="center"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="16dp"
-                        android:text="Barry's Burritos!"
-                        android:textSize="36sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Home of the best burritos in Stoke-on-Trent, where every bite is a fiesta!"
-                        android:textSize="16sp"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="8dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Our burritos are so good, even the salsa is doing the cha-cha!"
-                        android:textSize="16sp"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="8dp"/>
-
-                    <!-- Add more static details as needed -->
-
-                </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
-
-
     </ScrollView>
 </RelativeLayout>
 

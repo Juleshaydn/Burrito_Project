@@ -1,11 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#252525">
 
+    <!-- Toolbar with a modern look -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_menu"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+        android:elevation="4dp"
+        app:title="Build Custom Burrito"
+        app:titleTextColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ScrollView for scrolling content on smaller screens -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/toolbar_menu"
         android:fillViewport="true">
 
         <LinearLayout
@@ -14,14 +30,14 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <androidx.cardview.widget.CardView
+            <!-- CardView for the build options -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
-                android:padding="16dp">
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -32,49 +48,54 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Burrito Builder"
-                        android:textSize="20sp"
+                        android:text="Customize your Burrito"
+                        android:textSize="24sp"
                         android:textStyle="bold"
+                        android:textColor="?attr/colorPrimary"
                         android:layout_marginBottom="16dp"/>
 
                     <!-- Checkboxes for ingredients selection -->
+                    <!-- Customize each CheckBox with a modern style -->
                     <CheckBox
                         android:id="@+id/cbRice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Rice"/>
+                        android:text="Rice"
+                        android:padding="8dp"/>
 
                     <CheckBox
                         android:id="@+id/cbBeans"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Beans"/>
+                        android:text="Beans"
+                        android:padding="8dp"/>
 
                     <CheckBox
                         android:id="@+id/cbCheese"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Cheese"/>
+                        android:text="Cheese"
+                        android:padding="8dp"/>
 
                     <CheckBox
                         android:id="@+id/cbSalsa"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Salsa"/>
-
-                    <!-- Add more ingredients as needed -->
+                        android:text="Salsa"
+                        android:padding="8dp"/>
 
                     <!-- Button to add to cart -->
                     <Button
                         android:id="@+id/btnAddToCart"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Add to Cart"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="24dp"/>
-
+                        android:background="@drawable/button_rounded"
+                        android:textColor="@android:color/white"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="16dp"/>
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
